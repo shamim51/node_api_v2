@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Data Display</title>
+  </head>
+  <body>
+    <button id="fetch-button" onclick="fetchData()">Fetch Data</button>
+    <ul id="data-list"></ul>
+
+    <script>
+      async function fetchData() {
+        for (let i = 0; i < 500
+        ; i++) {
+          try {
+            const response = await fetch('http://127.0.0.1:8000/', {
+              method: 'GET',
+            });
+            const data = await response.json();
+
+            const dataList = document.getElementById('data-list');
+            const item = document.createElement('li');
+            item.textContent = data;
+            dataList.appendChild(item);
+          } catch (err) {
+            console.error(err);
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
