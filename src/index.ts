@@ -11,7 +11,7 @@
 //     console.log('listening to port 8000');
 // })
 
-const app = require('./server');
+import app from './server';
 
 app.listen(8000, ()=>{
   console.log('server started on port 8000');
